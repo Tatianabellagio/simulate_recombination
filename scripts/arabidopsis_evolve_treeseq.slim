@@ -219,7 +219,7 @@ initialize() {
 	self.active = 0;
 }
 
-2:9 late(){
+2:6 late(){
 		if (sim.subpopulations[0].individualCount > 0){
 		// if after the survival event the population size is too big adjust it 
 		if (sim.subpopulations[0].individualCount > 900){
@@ -249,7 +249,7 @@ initialize() {
 //}
 
 
-11 late() {
+6 late() {
 	if (sim.subpopulations[0].individualCount > 0){
 		
 		// if after the survival event the population size is too big adjust it 
@@ -258,12 +258,12 @@ initialize() {
 			sim.killIndividuals(sim.subpopulations[0].sampleIndividuals(number_to_kill));
 		}
 		//output tree seq 
-		// sim.treeSeqOutput(output_tree_gen10);
+		sim.treeSeqOutput(output_tree_gen6);
 		sim.simulationFinished();
 	}
 	// if there are no individuals create an empty file for the trees file
 	else {
-		// writeFile(output_tree_gen10, '');
+		writeFile(output_tree_gen6, '');
 		sim.simulationFinished();
 	
 	}
