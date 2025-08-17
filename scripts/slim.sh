@@ -3,6 +3,7 @@ tree_seq_causalloci="${snakemake_input[tree_seq_causalloci]}"
 optima="${snakemake_wildcards[optima]}"
 selection="${snakemake_wildcards[selection]}"
 heritability_state="${snakemake_wildcards[heritability]}"
+outcrossing_rate="${snakemake_wildcards[outcrossing_rate]}"
 #output_tree_gen4="${snakemake_output[output_tree_gen4]}"
 #output_tree_gen10="${snakemake_output[output_tree_gen10]}"
 output_pop_size_early="${snakemake_output[output_pop_size_early]}"
@@ -76,6 +77,7 @@ slim \
     -d "h2='$h2'" \
     -d "optima='$optima'" \
     -d "variance='$variance'" \
+    -d "outcrossing_rate='$outcrossing_rate'" \
     -d "output_pop_size_early='$output_pop_size_early'" \
     -d "output_pop_size_late='$output_pop_size_late'" \
     -d "output_va='$output_va'" \
