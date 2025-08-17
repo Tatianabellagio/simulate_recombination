@@ -29,7 +29,7 @@ heritability: ['4'] # partial
 
 # proportion of contributin snps to the trait
 # pi: ['1','2','3','4','5','6','7'] # partial 
-pi: ['100'] # full '1','2','5','10','20','50','100','500','1000'
+pi: ['50'] # full '1','2','5','10','20','50','100','500','1000'
 
 # standard deviation of effect sizÍes of contributing loci 
 # beta: ['beta']
@@ -38,10 +38,10 @@ pi: ['100'] # full '1','2','5','10','20','50','100','500','1000'
 beta: 2
 
 # outcrossing rates to simulate different mating systems
-outcrossing_rate: ['0.1'] # 0%, 5%, 10%, 15% outcrossing '0', '0.05', '0.1', '0.15'
+outcrossing_rate: ['0'] # 0%, 5%, 10%, 15% outcrossing '0', '0.05', '0.1', '0.15'
 
 # variances to simulate different strength of selection 
-selection: ['estrongsel']
+selection: ['strongsel']
 # ['estrongsel','exstrongsel', 'strongsel', 'moderatesel']
 #'exstrongsel',
 # 'estrongsel', 
