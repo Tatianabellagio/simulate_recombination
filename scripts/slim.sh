@@ -4,7 +4,7 @@ optima="${snakemake_wildcards[optima]}"
 selection="${snakemake_wildcards[selection]}"
 heritability_state="${snakemake_wildcards[heritability]}"
 outcrossing_rate="${snakemake_wildcards[outcrossing_rate]}"
-#output_tree_gen4="${snakemake_output[output_tree_gen4]}"
+output_tree_gen6="${snakemake_output[output_tree_gen6]}"
 #output_tree_gen10="${snakemake_output[output_tree_gen10]}"
 output_pop_size_early="${snakemake_output[output_pop_size_early]}"
 output_pop_size_late="${snakemake_output[output_pop_size_late]}"
@@ -87,6 +87,7 @@ slim \
     -d "output_vpheno='$output_vpheno'" \
     -d "output_maxphenotype='$output_maxphenotype'" \
     -d "output_minphenotype='$output_minphenotype'" \
+    -d "output_tree_gen4='$output_tree_gen6'" \
     scripts/arabidopsis_evolve_treeseq.slim 
 
 #-d "output_new_optimum='$output_new_optimum'" \
