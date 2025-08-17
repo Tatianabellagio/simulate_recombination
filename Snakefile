@@ -49,7 +49,7 @@ rule run_slim_simulation:
     input:
         tree_seq_causalloci="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/tree_seq_causalloci.trees",
     output: 
-        output_tree_gen6=temp("results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees"),
+        output_tree_gen6="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
         #output_tree_gen10="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen10.trees",
         output_pop_size_early="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_pop_size_early.txt",
         output_va="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_va.txt",
@@ -77,7 +77,7 @@ rule tree_postprocessing:
         mapper_ids=config['mapper_realid_metadataid'],
         output_sim_tree="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
     output:
-        output_vcf=temp("results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vcf_gen6.vcf"),
+        output_vcf="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vcf_gen6.vcf",
     resources:
         mem_mb=30720,
         limit_space=1,
@@ -86,7 +86,7 @@ rule tree_postprocessing:
     script:
         "scripts/tree_postprocessing.py"
 
-    rule calc_ecotype_counts:
+rule calc_ecotype_counts:
     input:
         nonhet_pos=config['nonhet_pos'],
         og_vcf_offset=config["og_vcf_offset"],
