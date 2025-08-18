@@ -8,6 +8,7 @@ output_gen6_trees = pheno.replace('_minphenotype.txt', '_tree_output_gen6.trees'
 def create_empty_file_if_not_exists(filename):
     if not os.path.exists(filename):
         # Create an empty file
+        print(f"Creating empty file: {filename}")
         with open(filename, 'w') as file:
             pass
 
