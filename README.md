@@ -1,6 +1,5 @@
 # Recombination effects on adaptive evolution in Arabidopsis
 
-
 We are investigating the effects of recombination through outcrossing on adaptive evolution in Arabidopsis
 ### Two Experimental Conditions:
 1. **With Recombination**: Outcrossing rates of 0%, 5%, 10%, and 15% (based on literature)
