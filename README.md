@@ -6,10 +6,10 @@ We are investigating the effects of recombination through outcrossing on adaptiv
 2. **Without Recombination**: 0% outcrossing (purely clonal) as control
 
 ### Simulation Parameters:
-- **Selection Strength**: .01
+- **Selection Strength**: .1
 - **Heritability**: 0.7
 - **Environmental Change**: 1,2,3 std
-- **Population Size**: cap at 900
+- **Population Size**: cap at 900 at the end of each generation 
 - **Generations**: 5 generations to observe evolutionary change
 
 ## Repository Structure
