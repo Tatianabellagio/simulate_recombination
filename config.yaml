@@ -38,10 +38,10 @@ pi: ['50'] # full '1','2','5','10','20','50','100','500','1000'
 beta: 2
 
 # outcrossing rates to simulate different mating systems
-outcrossing_rate: ['0', '0.05', '0.1'] # 0%, 5%, 10%, 15% outcrossing '0', '0.05', '0.1', '0.15'
+outcrossing_rate: ['0', '0.05', '0.1', '0.15'] # 0%, 5%, 10%, 15% outcrossing '0', '0.05', '0.1', '0.15'
 
 # variances to simulate different strength of selection 
-selection: ['estrongsel']
+selection: ['strongsel']
 # ['estrongsel','exstrongsel', 'strongsel', 'moderatesel']
 #'exstrongsel',
 # 'estrongsel', 

@@ -75,7 +75,7 @@ rule tree_files_filling:
     input:
         pheno_file="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_minphenotype.txt",
     output:
-        sim_treegen6="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
+        sim_tree_gen6="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
     resources:
         mem_mb=30720,
         limit_space=1,
