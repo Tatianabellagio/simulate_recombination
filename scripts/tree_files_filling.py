@@ -1,8 +1,8 @@
 import os
 
-filename = snakemake.input['pheno_file'] 
+pheno = snakemake.input['pheno_file'] 
 
-output_gen6_trees = filename.replace('_st_phenov.txt', '_tree_output_gen6.trees')
+output_gen6_trees = pheno.replace('_minphenotype.txt', '_tree_output_gen6.trees')
 
 
 def create_empty_file_if_not_exists(filename):
