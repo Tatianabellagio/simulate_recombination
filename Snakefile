@@ -48,8 +48,9 @@ rule build_population_for_sim:
 rule run_slim_simulation:
     input:
         tree_seq_causalloci="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/tree_seq_causalloci.trees",
+    params:
+        output_tree_gen6 = "results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
     output: 
-        #output_tree_gen6="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
         #output_tree_gen10="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen10.trees",
         output_pop_size_early="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_pop_size_early.txt",
         output_va="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_va.txt",

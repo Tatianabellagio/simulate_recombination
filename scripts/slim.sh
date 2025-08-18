@@ -4,7 +4,7 @@ optima="${snakemake_wildcards[optima]}"
 selection="${snakemake_wildcards[selection]}"
 heritability_state="${snakemake_wildcards[heritability]}"
 outcrossing_rate="${snakemake_wildcards[outcrossing_rate]}"
-output_tree_gen6="${snakemake_output[output_tree_gen6]}"
+
 #output_tree_gen10="${snakemake_output[output_tree_gen10]}"
 output_pop_size_early="${snakemake_output[output_pop_size_early]}"
 output_pop_size_late="${snakemake_output[output_pop_size_late]}"
@@ -17,6 +17,8 @@ output_vpheno="${snakemake_output[output_vpheno]}"
 #output_adj_variance="${snakemake_output[output_adj_variance]}"
 output_maxphenotype="${snakemake_output[output_maxphenotype]}"
 output_minphenotype="${snakemake_output[output_minphenotype]}"
+
+output_tree_gen6="${snakemake_params[output_tree_gen6]}"
 
 # Map 'selection' to its numeric value using a case statement
 case "$selection" in
