@@ -18,9 +18,9 @@ output_vpheno="${snakemake_output[output_vpheno]}"
 output_maxphenotype="${snakemake_output[output_maxphenotype]}"
 output_minphenotype="${snakemake_output[output_minphenotype]}"
 
-output_tree_gen6="${snakemake_params[output_tree_gen6]}"
-echo "output_tree_gen6 = ${snakemake_params[output_tree_gen6]}"
+output_tree_gen6="${snakemake_output[output_tree_gen6]}"
 echo $output_tree_gen6
+
 # Map 'selection' to its numeric value using a case statement
 case "$selection" in
   'exstrongsel')

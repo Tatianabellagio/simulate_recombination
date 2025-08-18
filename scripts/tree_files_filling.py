@@ -1,14 +1,14 @@
 import os
 
-output_gen6_trees = snakemake.output['sim_tree_gen6'] 
-print(output_gen6_trees)
-print(os.path.exists(output_gen6_trees))
+pheno = snakemake.output['sim_tree_gen6'] 
 
-def create_empty_file_if_not_exists(output_gen6_trees):
-    if not os.path.exists(output_gen6_trees):
+output_gen6_trees = pheno.replace('_minphenotype.txt', '_tree_output_gen6.trees')
+
+def create_empty_file_if_not_exists(filename):
+    if not os.path.exists(filename):
         # Create an empty file
-        print(f"Creating empty file: {output_gen6_trees}")
-        with open(output_gen6_trees, 'w') as file:
+        print(f"Creating empty file: {filename}")
+        with open(filename, 'w') as file:
             pass
 
 create_empty_file_if_not_exists(output_gen6_trees)
