@@ -1,79 +1,31 @@
-# Polygenic and monogenic adaptation drive evolutionary rescue at different magnitudes of environmental change
+# Recombination effects on adaptive evolution in Arabidopsis
 
-This repository contains a Snakemake pipeline for running population genetics simulations using SLiM. The pipeline is designed to simulate evolutionary scenarios and analyze the resulting data.
+
+We are investigating the effects of recombination through outcrossing on adaptive evolution in Arabidopsis
+### Two Experimental Conditions:
+1. **With Recombination**: Outcrossing rates of 0%, 5%, 10%, and 15% (based on literature)
+2. **Without Recombination**: 0% outcrossing (purely clonal) as control
+
+### Simulation Parameters:
+- **Selection Strength**: .01
+- **Heritability**: 0.7
+- **Environmental Change**: 1,2,3 std
+- **Population Size**: cap at 900
+- **Generations**: 5 generations to observe evolutionary change
 
 ## Repository Structure
 
 ```
 .
-├── Snakefile              # Main Snakemake workflow file
-├── config.yaml           # Configuration parameters for simulations
-├── scripts/              # Python and R scripts for simulation and analysis
-├── treeseq/             # Scripts for VCF to tree sequence conversion
-├── analysis/            # Analysis scripts and notebooks
-└── results/             # Simulation results 
+├── Snakefile              # Main Snakemake workflow for simulations
+├── config.yaml           # Configuration: outcrossing rates, selection, heritability
+├── scripts/              # Core simulation and analysis scripts
+│   ├── build_population_for_sim.py    # Creates initial populations from GreneNet data
+│   ├── slim.sh                        # Runs SLiM simulations with parameters
+│   ├── arabidopsis_evolve_treeseq.slim # SLiM script with outcrossing logic
+│   ├── tree_postprocessing.py         # Converts tree sequences to VCF
+│   └── calc_ecotype_counts.py        # Calcualtes the number of different ecotypes and outcrossers based on initial vcf 
+├── treeseq/             # Tree sequence conversion scripts
+├── analysis/            # Analysis notebooks and scripts
+└── results/             # Simulation outputs organized by parameters
 ```
-
-## Workflow Overview
-
-1. **Initial Setup**
-   - Convert VCF files to tree sequence format using scripts in the `treeseq/` folder
-   - This tree sequence file serves as the starting point for simulations
-
-2. **Simulation Pipeline**
-   - The main workflow is defined in `Snakefile`
-   - All simulation parameters are configured in `config.yaml`
-   - The pipeline uses scripts from the `scripts/` folder to:
-     - Build initial populations
-     - Run SLiM simulations
-     - Process tree sequences
-     - Calculate allele frequencies
-     - Perform statistical analyses
-
-3. **Analysis**
-   - Results are collected and processed in the `analysis/` folder
-   - Jupyter notebooks are provided for reproducing the analyses presented in the paper
-   - The `scraping_results` folder contains scripts to aggregate simulation results
-
-## Configuration
-
-All simulation parameters are defined in `config.yaml`, including:
-- Heritability values
-- Selection strengths
-- Number of replicates
-- Environmental optima
-- Population parameters
-
-## Usage
-
-1. **Setup Environment**
-   ```bash
-   conda env create -f envs/base_env.yaml
-   conda activate base_env
-   ```
-
-2. **Run Pipeline**
-   ```bash
-   snakemake --use-conda
-   ```
-
-3. **Analysis**
-   - Navigate to the `analysis/` folder
-   - Run the provided Jupyter notebooks to reproduce the paper's analyses
-
-## Dependencies
-
-- Python 3.x
-- R
-- SLiM
-- Snakemake
-- Additional dependencies listed in `envs/base_env.yaml`
-
-## Paper Reference
-
-[Link to the paper will be added here]
-
-## Citation
-
-If you use this pipeline in your research, please cite:
-[Citation information will be added here] 
