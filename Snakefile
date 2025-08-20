@@ -124,4 +124,4 @@ rule calc_af_al_recomb:
     conda:
         "envs/base_env.yaml"
     script:
-        "scripts/calc_af_adaptive_alleles.py
+        "scripts/calc_af_adaptive_alleles.py"
