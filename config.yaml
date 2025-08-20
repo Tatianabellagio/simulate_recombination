@@ -29,7 +29,7 @@ heritability: ['4'] # partial
 
 # proportion of contributin snps to the trait
 # pi: ['1','2','3','4','5','6','7'] # partial 
-pi: ['5','50'] # full '1','2','5','10','20','50','100','500','1000'
+pi: ['5'] # full '1','2','5','10','20','50','100','500','1000'
 
 # standard deviation of effect sizÍes of contributing loci 
 # beta: ['beta']
@@ -56,8 +56,8 @@ moderatesel: 1
 lowsel: 3
 
 # number of replicates of each simulation to run
-replicates_sim: [1] #,2,3,4,5
-replicates_arq: [1,2,3,4,5] # ,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
+replicates_sim: [1,2,3,4,5,6,7,8,9,10] #,2,3,4,5
+replicates_arq: [1,2,3] # ,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
 
 # number of different environments to simulate
 #optima: [-4,-3,-2,-1,0,1,2,3,4]
