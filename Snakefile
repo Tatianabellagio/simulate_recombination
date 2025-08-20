@@ -22,6 +22,16 @@ rule all:
             optima=config["optima"],
             replicates_sim=config["replicates_sim"],    
         ),
+        expand(
+            "results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_alf_recomb.csv",
+            pi=config["pi"],
+            outcrossing_rate=config["outcrossing_rate"],
+            selection=config["selection"],
+            heritability=config["heritability"],
+            replicates_arq=config["replicates_arq"],
+            optima=config["optima"],
+            replicates_sim=config["replicates_sim"],    
+        ),
 
 
 rule build_population_for_sim:
@@ -101,3 +111,17 @@ rule calc_ecotype_counts:
         "envs/base_env.yaml"
     script:
         "scripts/calc_ecotype_counts.py"
+
+
+rule calc_af_al_recomb:
+    input:
+        loci_effectsize="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/loci_effectsize.csv",
+        vcf="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vcf_gen6.vcf",
+    output:
+        af_recomb="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_alf_recomb.csv",
+    resources:
+        mem_mb=30720,
+    conda:
+        "envs/base_env.yaml"
+    script:
+        "scripts/calc_af_adaptive_alleles.py
