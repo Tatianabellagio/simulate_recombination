@@ -13,7 +13,7 @@ configfile: "config.yaml"
 rule all:
     input:
         expand(
-            "results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_ecotype_counts.csv",
+            "results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_ecotype_counts.csv",
             pi=config["pi"],
             outcrossing_rate=config["outcrossing_rate"],
             selection=config["selection"],
@@ -23,7 +23,7 @@ rule all:
             replicates_sim=config["replicates_sim"],    
         ),
         expand(
-            "results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_alf_recomb.csv",
+            "results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_alf_recomb.csv",
             pi=config["pi"],
             outcrossing_rate=config["outcrossing_rate"],
             selection=config["selection"],
@@ -39,9 +39,9 @@ rule build_population_for_sim:
         og_tree_offset=config["og_tree_offset"],
         og_vcf_offset=config["og_vcf_offset"],
     output:
-        tree_seq_causalloci="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/tree_seq_causalloci.trees",
-        loci_effectsize="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/loci_effectsize.csv",
-        phenotypes="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/phenotypes.csv",
+        tree_seq_causalloci="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/tree_seq_causalloci.trees",
+        loci_effectsize="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/loci_effectsize.csv",
+        phenotypes="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/phenotypes.csv",
     params:
         pi=lambda wildcards: str(wildcards.pi),
         replicates_arq=lambda wildcards: str(wildcards.replicates_arq),
@@ -57,20 +57,20 @@ rule build_population_for_sim:
 
 rule run_slim_simulation:
     input:
-        tree_seq_causalloci="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/tree_seq_causalloci.trees",
+        tree_seq_causalloci="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/tree_seq_causalloci.trees",
     output: 
-        output_tree_gen6 = "results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
-        #output_tree_gen10="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen10.trees",
-        output_pop_size_early="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_pop_size_early.txt",
-        output_va="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_va.txt",
-        output_mfitness="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_mfitness.txt",
-        output_vfitness="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vfitness.txt",
-        output_mpheno="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_mpheno.txt",
-        output_vpheno="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vpheno.txt",
-        #output_new_optimum="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_new_optimum.txt",
-        #output_adj_variance="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_adj_variance.txt",
-        output_maxphenotype="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_maxphenotype.txt",
-        output_minphenotype="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_minphenotype.txt",
+        output_tree_gen6 = "results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_tree_output_gen6.trees",
+        #output_tree_gen10="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_tree_output_gen10.trees",
+        output_pop_size_early="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_pop_size_early.txt",
+        output_va="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_va.txt",
+        output_mfitness="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_mfitness.txt",
+        output_vfitness="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_vfitness.txt",
+        output_mpheno="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_mpheno.txt",
+        output_vpheno="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_vpheno.txt",
+        #output_new_optimum="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_new_optimum.txt",
+        #output_adj_variance="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_adj_variance.txt",
+        output_maxphenotype="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_maxphenotype.txt",
+        output_minphenotype="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_minphenotype.txt",
 
     resources:
         mem_mb=40960,
@@ -85,9 +85,9 @@ rule tree_postprocessing:
     input:
         og_tree_offset=config["og_tree_offset"],
         mapper_ids=config['mapper_realid_metadataid'],
-        output_sim_tree="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_tree_output_gen6.trees",
+        output_sim_tree="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_tree_output_gen6.trees",
     output:
-        output_vcf="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vcf_gen6.vcf",
+        output_vcf="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_vcf_gen6.vcf",
     resources:
         mem_mb=30720,
         limit_space=1,
@@ -101,9 +101,9 @@ rule calc_ecotype_counts:
         nonhet_pos=config['nonhet_pos'],
         og_vcf_offset=config["og_vcf_offset"],
         ecotypes_grenenet=config['ecotypes_grenenet'],
-        output_vcf_offset="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vcf_gen6.vcf",
+        output_vcf_offset="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_vcf_gen6.vcf",
     output:
-        ecotype_counts="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_ecotype_counts.csv",
+        ecotype_counts="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_ecotype_counts.csv",
     resources:
         mem_mb=30720,
     threads: 20,
@@ -115,10 +115,10 @@ rule calc_ecotype_counts:
 
 rule calc_af_al_recomb:
     input:
-        loci_effectsize="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/loci_effectsize.csv",
-        vcf="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_vcf_gen6.vcf",
+        loci_effectsize="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/loci_effectsize.csv",
+        vcf="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_vcf_gen6.vcf",
     output:
-        af_recomb="results/outxing_{outcrossing_rate}/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/subp{replicates_sim}_alf_recomb.csv",
+        af_recomb="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_alf_recomb.csv",
     resources:
         mem_mb=30720,
     conda:
