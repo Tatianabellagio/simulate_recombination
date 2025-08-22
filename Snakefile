@@ -39,17 +39,15 @@ rule build_population_for_sim:
         og_tree_offset=config["og_tree_offset"],
         og_vcf_offset=config["og_vcf_offset"],
     output:
-        tree_seq_causalloci="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/tree_seq_causalloci.trees",
-        loci_effectsize="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/loci_effectsize.csv",
-        phenotypes="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/phenotypes.csv",
+        tree_seq_causalloci="results/arq_pi{pi}_{replicates_arq}/tree_seq_causalloci.trees",
+        loci_effectsize="results/arq_pi{pi}_{replicates_arq}/loci_effectsize.csv",
+        phenotypes="results/arq_pi{pi}_{replicates_arq}/phenotypes.csv",
     params:
         pi=lambda wildcards: str(wildcards.pi),
         replicates_arq=lambda wildcards: str(wildcards.replicates_arq),
         beta=config["beta"],
     resources:
         mem_mb=30720,
-    benchmark:
-        "benchmarks/outxing_{outcrossing_rate}_arq_pi{pi}_{replicates_arq}.txt"
     conda:
         "envs/base_env.yaml"
     script:
@@ -57,7 +55,7 @@ rule build_population_for_sim:
 
 rule run_slim_simulation:
     input:
-        tree_seq_causalloci="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/tree_seq_causalloci.trees",
+        tree_seq_causalloci="results/arq_pi{pi}_{replicates_arq}/tree_seq_causalloci.trees",
     output: 
         output_tree_gen6 = "results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_tree_output_gen6.trees",
         #output_tree_gen10="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_tree_output_gen10.trees",
@@ -115,7 +113,7 @@ rule calc_ecotype_counts:
 
 rule calc_af_al_recomb:
     input:
-        loci_effectsize="results/arq_pi{pi}_{replicates_arq}/outxing_{outcrossing_rate}/loci_effectsize.csv",
+        loci_effectsize="results/arq_pi{pi}_{replicates_arq}/loci_effectsize.csv",
         vcf="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_vcf_gen6.vcf",
     output:
         af_recomb="results/arq_pi{pi}_{replicates_arq}/{heritability}/{selection}/optima{optima}/outxing_{outcrossing_rate}/subp{replicates_sim}_alf_recomb.csv",
