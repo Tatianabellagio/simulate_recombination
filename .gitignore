@@ -45,4 +45,7 @@ testing.ipynb
 *.png
 *.pdf
 *.svg
+!figures/*.png
+!figures/*.pdf
+!figures/*.svg
 
